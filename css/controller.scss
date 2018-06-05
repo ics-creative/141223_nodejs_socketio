@@ -27,11 +27,10 @@ a:hover {
     width: 100%;
     height: 100%;
     background-color: #0b2f41; /* Old browsers */
-    background-image: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#0b2f41), color-stop(100%,#031318)); /* Chrome,Safari4+ */
-    background-image: -webkit-radial-gradient(center, ellipse cover, #0b2f41 0%,#031318 100%); /* Chrome10+,Safari5.1+ */
-    background-image: radial-gradient(ellipse at center, #0b2f41 0%,#031318 100%); /* W3C */
+    background-image: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #0b2f41), color-stop(100%, #031318)); /* Chrome,Safari4+ */
+    background-image: -webkit-radial-gradient(center, ellipse cover, #0b2f41 0%, #031318 100%); /* Chrome10+,Safari5.1+ */
+    background-image: radial-gradient(ellipse at center, #0b2f41 0%, #031318 100%); /* W3C */
     background-size: 100% 100%;
-
 
     > p {
       position: absolute;
@@ -61,9 +60,9 @@ a:hover {
       -webkit-animation: colorAnimation 4s linear infinite;
       animation: colorAnimation 4s linear infinite;
 
-      transform: scale(0,0);
+      transform: scale(0, 0);
       &.on {
-        transform: scale(1,1);
+        transform: scale(1, 1);
       }
     }
 
@@ -108,9 +107,6 @@ a:hover {
     background-color: hsl(0, 100, 50);
   }
 }
-
-
-
 
 @keyframes colorAnimation {
   0% {
