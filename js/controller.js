@@ -4,8 +4,9 @@ if (typeof(io) != 'undefined') {
 } else {
   // ioオブジェクトが存在しない時にエラーにならない設定
   socket = {
-    emit: function () {
-    }, on: function () {
+    emit: () => {
+    },
+    on: () => {
     }
   };
 }
@@ -85,22 +86,21 @@ $(function () {
   const MOUSE_MOVE = isTouch ? 'touchmove' : 'mousemove';
   const MOUSE_OUT = isTouch ? 'touchout' : 'mouseleave';
 
-
   let isDrag = false;
 
-  $(document).on(MOUSE_DOWN, function (mouseEvent) {
+  $(document).on(MOUSE_DOWN, (mouseEvent) => {
     isDrag = true;
     mouseActionHandler(mouseEvent, 'mouseDownFromControler');
   });
 
-  $(document).on(MOUSE_MOVE, function (mouseEvent) {
+  $(document).on(MOUSE_MOVE, (mouseEvent) => {
     event.preventDefault();
     if (isDrag) {
       mouseActionHandler(mouseEvent, 'mouseMoveFromControler');
     }
   });
 
-  $(document).on(MOUSE_UP + ' ' + MOUSE_OUT, function (mouseEvent) {
+  $(document).on(MOUSE_UP + ' ' + MOUSE_OUT, (mouseEvent) => {
     isDrag = false;
     mouseActionHandler(mouseEvent, 'mouseUpFromControler');
   });
