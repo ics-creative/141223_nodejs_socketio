@@ -1,0 +1,87 @@
+a:hover {
+  border: none;
+  text-decoration: none; }
+
+#wrapper .window {
+  position: absolute;
+  left: 50%;
+  top: -50%;
+  width: 290px;
+  height: 290px;
+  margin-left: -150px;
+  margin-top: -150px; }
+#wrapper .firstWindow {
+  top: 50%; }
+#wrapper #controllerWindow {
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #0b2f41;
+  /* Old browsers */
+  background-image: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #0b2f41), color-stop(100%, #031318));
+  /* Chrome,Safari4+ */
+  background-image: -webkit-radial-gradient(center, ellipse cover, #0b2f41 0%, #031318 100%);
+  /* Chrome10+,Safari5.1+ */
+  background-image: radial-gradient(ellipse at center, #0b2f41 0%, #031318 100%);
+  /* W3C */
+  background-size: 100% 100%; }
+  #wrapper #controllerWindow > p {
+    position: absolute;
+    width: 100%; }
+  #wrapper #controllerWindow #pairingIDText {
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+    margin-right: 10px; }
+  #wrapper #controllerWindow #controllPoint {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: 0.1s transform ease-out;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: colorAnimation 4s linear infinite;
+    animation: colorAnimation 4s linear infinite;
+    transform: scale(0, 0); }
+    #wrapper #controllerWindow #controllPoint.on {
+      transform: scale(1, 1); }
+  #wrapper #controllerWindow #informationText {
+    top: 0;
+    font-size: 3.0rem;
+    font-weight: bold;
+    line-height: 3.0rem; }
+#wrapper #roomID {
+  width: 240px;
+  height: 90px;
+  font-size: 3.0rem; }
+#wrapper #pairingButton {
+  margin-top: 40px; }
+
+@-webkit-keyframes colorAnimation {
+  0% {
+    background-color: red; }
+  25% {
+    background-color: #80ff00; }
+  50% {
+    background-color: cyan; }
+  75% {
+    background-color: #7f00ff; }
+  100% {
+    background-color: red; } }
+@keyframes colorAnimation {
+  0% {
+    background-color: red; }
+  25% {
+    background-color: #80ff00; }
+  50% {
+    background-color: cyan; }
+  75% {
+    background-color: #7f00ff; }
+  100% {
+    background-color: red; } }
+
+/*# sourceMappingURL=controller.css.map */

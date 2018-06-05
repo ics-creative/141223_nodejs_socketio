@@ -1,0 +1,91 @@
+#wrapper a {
+  color: #ffffff;
+  -webkit-animation: fontColorAnimation 4s linear infinite;
+  animation: fontColorAnimation 4s linear infinite; }
+#wrapper .window {
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 400px;
+  height: 360px;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  #wrapper .window > * {
+    margin-top: 8px; }
+  #wrapper .window:first-child {
+    margin-left: 0; }
+  #wrapper .window > p:first-child {
+    margin-top: 0;
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto; }
+  #wrapper .window hr {
+    height: 0;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    margin: 16px auto 40px; }
+#wrapper [id$="Layer"] {
+  position: absolute; }
+#wrapper #pairingLayer,
+#wrapper #forcePairingLayer {
+  left: 50%;
+  top: 50%; }
+#wrapper #pairingLayer {
+  width: 820px;
+  margin-left: -420px;
+  margin-top: -200px; }
+  #wrapper #pairingLayer #qrCode {
+    margin-top: 14px; }
+  #wrapper #pairingLayer #pairingCodeForSP {
+    margin-top: 70px;
+    color: #ffffff;
+    font-size: 6.0rem;
+    line-height: 6.4rem;
+    font-weight: bold;
+    -webkit-animation: fontColorAnimation 4s linear infinite;
+    animation: fontColorAnimation 4s linear infinite; }
+  #wrapper #pairingLayer #forcePairingText {
+    margin-top: 70px; }
+#wrapper #forcePairingLayer {
+  margin-left: -200px;
+  margin-top: -200px;
+  top: -50%; }
+  #wrapper #forcePairingLayer .window > *:not(:first-child) {
+    margin-top: 30px; }
+  #wrapper #forcePairingLayer p:first-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    font-weight: normal;
+    line-height: 2.6rem; }
+#wrapper #myCanvasLayer {
+  top: 0;
+  left: 0;
+  display: none; }
+  #wrapper #myCanvasLayer #pairingIDText {
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    right: 20px; }
+#wrapper #forcePairingText,
+#wrapper #normalPairingText {
+  cursor: pointer; }
+  #wrapper #forcePairingText:hover,
+  #wrapper #normalPairingText:hover {
+    text-decoration: underline; }
+
+@media only screen and (max-width: 830px) {
+  #wrapper .window {
+    float: none;
+    margin-left: 0; }
+  #wrapper #pairingLayer {
+    position: static;
+    width: 400px;
+    top: 0;
+    left: 0;
+    margin: 0 auto; } }
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,153 @@
+@charset "UTF-8";
+$small:  "only screen and (max-width:830px)";
+
+#wrapper
+{
+  $pointColor:#ffffff;
+
+  a {
+    color: $pointColor;
+    -webkit-animation: fontColorAnimation 4s linear infinite;
+    animation: fontColorAnimation 4s linear infinite;
+
+  }
+  .window {
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 400px;
+    height: 360px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    > * {
+      margin-top: 8px;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+    > p:first-child {
+      margin-top: 0;
+      font-size: 2.6rem;
+      font-weight: bold;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    hr {
+      height: 0;
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid rgba(0,0,0, 1);
+      border-bottom: 1px solid rgba(255,255,255, 0.1);
+      width: 90%;
+      margin: 16px auto 40px;
+
+    }
+
+  }
+
+  [id$="Layer"]
+  {
+    position: absolute;
+  }
+
+  #pairingLayer,
+  #forcePairingLayer
+  {
+    left: 50%;
+    top: 50%;
+  }
+
+
+  #pairingLayer {
+    width: 820px;
+    margin-left: -420px;
+    margin-top: -200px;
+
+    #qrCode {
+      margin-top: 14px;
+    }
+
+    #pairingCodeForSP {
+      margin-top: 70px;
+      color: $pointColor;
+      font-size: 6.0rem;
+      line-height: 6.4rem;
+      font-weight: bold;
+      -webkit-animation: fontColorAnimation 4s linear infinite;
+      animation: fontColorAnimation 4s linear infinite;
+    }
+
+    #forcePairingText {
+      margin-top: 70px;
+
+    }
+  }
+
+  #forcePairingLayer {
+    margin-left: -200px;
+    margin-top: -200px;
+    top: -50%;
+
+    .window > *:not(:first-child)
+    {
+      margin-top: 30px;
+    }
+
+    p:first-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      font-weight: normal;
+      line-height: 2.6rem;
+
+    }
+  }
+
+  #myCanvasLayer {
+    top: 0;
+    left: 0;
+    display: none;
+
+    #pairingIDText {
+      position: absolute;
+      z-index: 1;
+      bottom: 20px;
+      right: 20px;
+
+    }
+  }
+
+
+
+  #forcePairingText,
+  #normalPairingText
+  {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
+
+
+
+@media #{$small} {
+  #wrapper {
+    .window {
+      float: none;
+      margin-left: 0;
+
+    }
+    #pairingLayer {
+      position: static;
+      width: 400px;
+      top: 0;
+      left: 0;
+      margin: 0 auto;
+    }
+  }
+}
