@@ -1,13 +1,13 @@
 // サーバー構築
-var http = require("http");
+const http = require("http");
 // fsモジュールの読み込み
-var fs = require("fs");
+const fs = require("fs");
 // pathモジュールの読み込み
-var path = require("path");
+const path = require("path");
 // httpサーバーを立てる
-var server = http.createServer(requestListener);
+const server = http.createServer(requestListener);
 // httpサーバーを起動する。
-server.listen((process.env.PORT || 5000), function() {
+server.listen((process.env.PORT || 5000), () => {
     console.log((process.env.PORT || 5000) + "でサーバーが起動しました");
 });
 /**
@@ -15,9 +15,9 @@ server.listen((process.env.PORT || 5000), function() {
  */
 function requestListener(request, response) {
     // リクエストがあったファイル
-    var requestURL = request.url;
+    const requestURL = request.url;
     // リクエストのあったファイルの拡張子を取得
-    var extensionName = path.extname(requestURL);
+    const extensionName = path.extname(requestURL);
     // ファイルの拡張子に応じてルーティング処理
     switch(extensionName)
     {
@@ -52,8 +52,8 @@ function requestListener(request, response) {
  */
 function readFileHandler(fileName, contentType, isBinary, response) {
     // エンコードの設定
-    var encoding = !isBinary ? "utf8" : "binary";
-    var filePath = __dirname + fileName;
+    const encoding = !isBinary ? "utf8" : "binary";
+    const filePath = __dirname + fileName;
 
     fs.exists(filePath, function(exits) {
         if(exits)
@@ -86,51 +86,51 @@ function readFileHandler(fileName, contentType, isBinary, response) {
 }
 
 // socket.ioの読み込み
-var socketIO = require("socket.io");
+const socketIO = require("socket.io");
 // サーバーでSocket.IOを使える状態にする
-var io = socketIO.listen(server);
+const io = socketIO.listen(server);
 
 // サーバーへのアクセスを監視。クライアントからのアクセスがあったらコールバックが実行
-io.sockets.on("connection", function(socket) {
-    var roomID;
+io.sockets.on("connection", (socket) => {
+    let roomID;
     // メイン画面からのpairingFromMainというデータを受信（メイン画面のペアリング）
-    socket.on("pairingFromMain", function(data) {
+    socket.on("pairingFromMain", (data) => {
         roomID = data.roomID;
         socket.join(roomID);
         socket.emit("successLoginPC");
     });
     // メイン画面からのforcePairingFromMainというデータを受信（強制ペアリング）
-    socket.on("forcePairingFromMain", function(data) {
+    socket.on("forcePairingFromMain", (data) => {
         roomID = data.roomID;
         socket.join(roomID);
         socket.emit("successPairing");
     });
     // コントローラーからのpairingFromControllerというデータを受信（コントローラーのペアリングイベント）
-    socket.on("pairingFromController", function(data) {
+    socket.on("pairingFromController", (data) => {
         roomID = data.roomID;
         socket.join(roomID);
         // ルームIDがroomIDのグループにsuccessPairingというデータを送信
         io.sockets.to(roomID).emit("successPairing");
     });
     // コントローラーからmouseDownFromControlerというデータを受信（コントローラでマウスダウンイベントが発生）
-    socket.on("mouseDownFromControler", function(data) {
+    socket.on("mouseDownFromControler", (data) => {
         socket.to(roomID).broadcast.emit("mouseDownToMain", data);
     });
     // コントローラーからmouseMoveFromControlerというデータを受信（コントローラでマウスムーブイベントが発生）
-    socket.on("mouseMoveFromControler", function(data) {
+    socket.on("mouseMoveFromControler", (data) => {
         socket.to(roomID).broadcast.emit("mouseMoveToMain", data);
     });
     // コントローラーからmouseUpFromControlerというデータを受信（コントローラでマウスアップイベントが発生）
-    socket.on("mouseUpFromControler", function(data) {
+    socket.on("mouseUpFromControler", (data) => {
         socket.to(roomID).broadcast.emit("mouseUpToMain", data);
     });
 });
 // 接続エラー
-io.sockets.on("connect_error", function(socket) {
+io.sockets.on("connect_error", (socket) => {
     console.log("connect_error");
 });
 // 接続終了
-io.sockets.on("disconnect", function(socket) {
+io.sockets.on("disconnect", (socket) => {
     socket.emit("disconnectEvent");
     console.log("disconnecth");
 });
