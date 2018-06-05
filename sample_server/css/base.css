@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/* --------------------------------------
+   リセットCSS
+  -------------------------------------- */
+*:not(input) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal; }
+
+ul {
+  list-style: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+a:hover {
+  border: none;
+  text-decoration: none; }
+
+strong {
+  font-weight: bold;
+  font-style: normal; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #e9eaed;
+  overflow-x: hidden; }
+
+body {
+  color: #d0d0d0;
+  background-color: #535353;
+  font-family: "Hiragino Kaku Gothic Pro", "Osaka", "Meiryo", "MS PGothic", sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.8rem; }
+
+.button {
+  border: 1px solid #363636;
+  background: #747474;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(to bottom, #747474 1%, #626262 100%);
+  cursor: pointer;
+  line-height: 2.1rem; }
+  .button:hover {
+    background: linear-gradient(to bottom, #626262 1%, #747474 100%); }
+
+#wrapper {
+  height: 100%;
+  text-align: center;
+  position: relative; }
+  #wrapper .window {
+    border-radius: 5px;
+    background-color: #303030;
+    text-shadow: -1px -1px 0 #444;
+    box-shadow: 0px 0px 8.64px 0.36px rgba(0, 0, 0, 0.373); }
+    #wrapper .window > * {
+      margin-top: 20px; }
+
+/*# sourceMappingURL=base.css.map */
